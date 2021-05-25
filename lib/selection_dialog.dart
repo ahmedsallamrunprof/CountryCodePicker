@@ -144,7 +144,7 @@ class _SelectionDialogState extends State<SelectionDialog> {
           if (widget.showFlag!)
             Flexible(
               child: Container(
-                margin: const EdgeInsets.only(right: 16.0),
+                margin: const EdgeInsetsDirectional.only(end: 16.0),
                 decoration: widget.flagDecoration,
                 clipBehavior:
                     widget.flagDecoration == null ? Clip.none : Clip.hardEdge,
@@ -163,6 +163,10 @@ class _SelectionDialogState extends State<SelectionDialog> {
                   : e.toLongString(),
               overflow: TextOverflow.fade,
               style: widget.textStyle,
+              textDirection: TextDirection.ltr,
+              textAlign: Directionality.of(context) == TextDirection.rtl
+                  ? TextAlign.end
+                  : TextAlign.start,
             ),
           ),
         ],
